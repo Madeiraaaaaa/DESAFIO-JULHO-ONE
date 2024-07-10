@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esse aqui é o site super secreto que secretamente podemos conversar de forma secreta!</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .coluna {
+            flex: 1;
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        textarea {
+            width: 100%;
+            resize: none;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        button {
+            background-color: #007bff;
+            margin: 10px;
+            border-radius: 10px; 
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #alerta {
+            color: red;
+        }
+        #output {
+            margin-top: 20px;
+        }
+        #copyButton {
+            display: none;
+        }
+        footer {
+        text-align: center; 
+        background-color: #f9f9f9; 
+        padding: 10px; 
+    }
+
+    footer p {
+        font-size: 14px;
+        color: #555; 
+    }
+    </style>
+</head>
+<body>
+    <div class="coluna">
+        <img src="imagens/desbloqueio.jpg" alt="Imagem ultrassecreta">
+        <h1>Esse aqui é o site super secreto onde secretamente podemos criar nossos textos secretos para conversar de forma super secreta!</h1>
+        <img src="imagens/ultrasecreto.jpg" alt="Imagem ultrassecreta">
+        <label for="inputText">Digite aqui o seu texto:</label>
+        <p></p>
+        <textarea id="inputText" rows="4" placeholder="segredos super secretos podem ser escritos aqui | onde os bits e bytes dançam em segredo | reside uma coleção de mistérios insondáveis | os zeros e uns sussurram histórias proibidas |
+        esses segredos sao como fios invisiveis..."></textarea>
+        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+            <p id="alerta">ATENÇÃO: SOMENTE digite letras minúsculas e sem acento!</p>
+            <div class="botoes-container">
+                <button onclick="criptografar()">Clique aqui para criptografar</button>
+                <button onclick="descriptografar()">Clique aqui para descriptografar</button>
+                <button onclick="limpar()">Limpar</button>
+            </div>
+        </div>
+        <p id="output"></p> <!-- resultado criptografado -->
+        <div class="botoes-container" style="display: flex; justify-content: flex-end;">
+        <button id="copyButton" onclick="copiar()" style="display: none;">Copiar</button>
+        </div>
+        <footer>
+            <p>&copy; 2024 - Feito com <3 por Madeira</p>
+        </footer>
+    </div>
+    <div class="coluna">
+        <img src="imagens/fofoca.jpg" alt="fofoca">
+        <img src="imagens/fofoca2.jpg" alt="fofoca">
+        <p style="text-align: right;"></p>
+    </div>
+    <script>
+        function criptografar() {
+            const inputText = document.getElementById("inputText").value.toLowerCase();
+            const criptografado = inputText
+                .replace(/e/g, "enter")
+                .replace(/i/g, "imes")
+                .replace(/a/g, "ai")
+                .replace(/o/g, "ober")
+                .replace(/u/g, "ufat");
+            document.getElementById("output").textContent = criptografado;
+            document.getElementById("copyButton").style.display = "block";
+        }
+
+        function descriptografar() {
+            const inputText = document.getElementById("inputText").value.toLowerCase();
+            const descriptografado = inputText
+                .replace(/enter/g, "e")
+                .replace(/imes/g, "i")
+                .replace(/ai/g, "a")
+                .replace(/ober/g, "o")
+                .replace(/ufat/g, "u");
+            document.getElementById("output").textContent = descriptografado;
+            document.getElementById("copyButton").style.display = "block";
+        }
+
+        function limpar() {
+            document.getElementById("inputText").value = "";
+            document.getElementById("output").textContent = "";
+            document.getElementById("copyButton").style.display = "none";
+        }
+
+        function copiar() {
+            const outputText = document.getElementById("output").textContent;
+            navigator.clipboard.writeText(outputText)
+                .then(() => alert("Texto SECRETO copiado com sucesso!"))
+                .catch(err => console.error("Erro ao copiar o texto:", err));
+        }
+    </script>
+</body>
+</html>
